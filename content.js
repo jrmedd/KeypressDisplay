@@ -19,13 +19,12 @@ const validKeys = Object.keys(keyStates);
 
 const keyboard = document.createElementNS(SVGNS, "svg");
 keyboard.innerHTML = keyboardContent;
-keyboard.setAttributeNS(null, "width", 253);
-keyboard.setAttributeNS(null, "height", 165);
+keyboard.setAttributeNS(null, "viewBox", "0 0 1013 306");
 keyboard.setAttributeNS(null, "fill", "none");
+keyboard.setAttributeNS(null, "overflow", "visible");
 keyboard.setAttribute('id', 'keyboard-keyboard');
-keyboard.style.width = "1013px";
-keyboard.style.height = "306px";
-keyboard.style.borderRadius = "4px";
+keyboard.style.width = "50vw";
+keyboard.style.height = "auto";
 keyboard.style.transition = "all .3s ease";
 keyboard.style.zIndex = "999999";
 keyboard.style.position = "fixed";
@@ -41,7 +40,7 @@ const updateKeyboard = (keyStates) => {
         let thisKey = keyboard.getElementById(keyCode);
         if (thisKey) {
             thisKey.style.transition = "all .125s ease";
-            thisKey.style.transformOrigin = "50% 50%";
+            thisKey.style.transformOrigin = `50% 50%`;
             thisKey.style.opacity = keyStates[keyCode] ? 1 : 0.5;
             thisKey.style.transform = `scale(${keyStates[keyCode] ? 0.985 : 1})`; 
         }
